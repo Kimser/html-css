@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body,
+      html {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        background: #fff;
+      }
+
+      div {
+        position: relative;
+        margin: auto;
+        width: 300px;
+        height: 240px;
+        background: #ddd;
+        overflow: hidden;
+        mask: linear-gradient(
+            #000,
+            #000 3px,
+            transparent 3px,
+            transparent calc(100% - 3px),
+            #000 calc(100% - 3px),
+            #000
+          ),
+          linear-gradient(
+            90deg,
+            #000,
+            #000 3px,
+            transparent 3px,
+            transparent,
+            transparent calc(100% - 3px),
+            #000 calc(100% - 3px),
+            #000
+          );
+      }
+      div::after {
+        content: "";
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(red, pink 25%, transparent 25%, transparent);
+        animation: rotate 4s linear infinite;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(1turn);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>
